@@ -2,7 +2,7 @@
 
 namespace Alura\DesignPattern;
 
-class GerarPedido implements Command
+class GerarPedido
 {
     private float $valorOrcamento;
     private int $numeroDeItens;
@@ -15,18 +15,20 @@ class GerarPedido implements Command
         $this->nomeCliente = $nomeCliente;
     }
 
-    public function execute()
+    public function getValorOrcamento(): float
     {
-        $orcamento = new Orcamento();
-        $orcamento->quantidadeItens = $this->numeroDeItens;
-        $orcamento->valor = $this->valorOrcamento;
-
-        $pedido = new Pedido();
-        $pedido->dataFinalizacao = new \DateTimeImmutable();
-        $pedido->nomeCliente = $this->nomeCliente;
-        $pedido->orcamento = $orcamento;
-
-        echo "Cria pedido no banco de dados " . PHP_EOL;
-        echo "Envia e-mail para cliente" . PHP_EOL;
+        return $this->valorOrcamento;
     }
+
+    public function getNumeroDeItens(): int
+    {
+        return $this->numeroDeItens;
+    }
+
+    public function getNomeCliente(): string
+    {
+        return $this->nomeCliente;
+    }
+
+
 }
