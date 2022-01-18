@@ -5,9 +5,9 @@ namespace Alura\DesignPattern\Descontos;
 use Alura\DesignPattern\Impostos\Imposto;
 use Alura\DesignPattern\Orcamento;
 
-abstract class ImpostoCom2Aliquotas implements Imposto
+abstract class ImpostoCom2Aliquotas extends Imposto
 {
-    public function calculaImposto(Orcamento $orcamento): float
+    public function realizaCalculoEspecifico(Orcamento $orcamento): float
     {
         if ($orcamento->valor > 300 && $orcamento->quantidadeItens > 3) {
             return $this->ikcv->calculaTaxaMaxima($orcamento);

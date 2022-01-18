@@ -7,14 +7,13 @@ use Alura\DesignPattern\Impostos\Iss;
 use Alura\DesignPattern\Orcamento;
 
 require 'vendor/autoload.php';
-/*
+
 $calculadora = new CalculadoraDeImpostos();
 
 $orcamento = new Orcamento();
 $orcamento->valor = 100;
 
-echo $calculadora->calcula($orcamento, new Iss());
-*/
+echo $calculadora->calcula($orcamento, new Iss(new Icms()));
 
 /*
 $calculadora = new CalculadoraDeDescontos();
@@ -26,9 +25,11 @@ $orcamento->quantidadeItens = 6;
 echo $calculadora->calculadaDescontos($orcamento);
 */
 
+/*
 $orcamento = new Orcamento();
 
 $orcamento->valor = 150;
 $orcamento->aprova();
 
 $orcamento->aplicaDescontoExtra();
+*/
