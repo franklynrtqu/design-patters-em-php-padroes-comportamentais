@@ -1,20 +1,22 @@
 <?php
 
-use Alura\DesignPattern\DadosExtrinsecosPedido;
 use Alura\DesignPattern\Orcamento;
-use Alura\DesignPattern\Pedido;
+use Alura\DesignPattern\Pedido\CriadorDePedido;
+use Alura\DesignPattern\Pedido\Pedido;
+use Alura\DesignPattern\Pedido\TemplatePedido;
 
 require 'vendor/autoload.php';
 
 $pedidos = [];
-$dados = new DadosExtrinsecosPedido(md5('a'), new DateTimeImmutable());
+$criadorPedido = new CriadorDePedido();
 
 for ($i = 0; $i < 10000; $i++) {
-    $pedido = new Pedido();
-    $pedido->dados = $dados;
-    $pedido->orcamento = new Orcamento();
-
-    $pedidos[] = $pedido;
+    $orcamento = new Orcamento();
+    $pedido = $criadorPedido->criaPedido(
+        'Franklyn de Quadros',
+        date('Y-m-d'),
+        $orcamento
+    );
 }
 
 echo memory_get_peak_usage();
